@@ -1,5 +1,9 @@
+#Imported packages
+##Machine package imports functions required for communicating with the microcontroller
 from machine import Pin,ADC
+##sleep function is used to put the board to sleep. This is done to give a buffer preventing overloading of data
 from time import sleep
+##From servo, the class Servo is imported that helps make controlling servos easier
 from servo import Servo,Map
 
 #Initialize pins
@@ -7,6 +11,8 @@ relay = Pin(19,Pin.OUT)
 gyro_x = ADC(Pin(26,Pin.IN))
 gyro_y = ADC(Pin(27,Pin.IN))
 gyro_z = ADC(Pin(28,Pin.IN))
+
+#Global variables
 
 XLim_min = 459
 YLim_min = 450
@@ -16,6 +22,10 @@ XLim_max = 600
 YLim_max = 600
 ZLim_max = 510
 
+s1Pos = 90
+s2Pos = 90
+s3Pos = 90
+
 ##Front and Back
 s1 = Servo(7)
 ##Left and Right
@@ -23,17 +33,15 @@ s2 = Servo(8)
 ##Up and Down
 s3 = Servo(9)
 
-#Global variables
-s1Pos = 90
-s2Pos = 90
-s3Pos = 90
 
 while True:
+    #Read X,Y and Z values and Map from 0 to 1024
     XPos = Map(gyro_x.read_u16(),0,65535,0,1024)
     YPos = Map(gyro_y.read_u16(),0,65535,0,1024)
     ZPos = Map(gyro_z.read_u16(),0,65535,0,1024)
     print(f"{XPos} : {YPos} : {ZPos} ")
 
+    #Perform movement if criteria is satisfied
     if XPos < XLim_min:
         print("MOVE: DOWN")
         s2Pos = s2Pos - 15
