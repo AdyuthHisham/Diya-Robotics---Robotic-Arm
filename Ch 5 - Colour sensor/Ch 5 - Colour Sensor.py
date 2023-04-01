@@ -32,6 +32,8 @@ while True:
     #red
     if red > green and red > blue:
         print("Detected: Red")
+    elif red > 200 and green > 200 and blue > 200:
+        print("Detected: White")
     elif green > red and green > blue:
         print("Detected: Green")
     #blue
@@ -39,10 +41,11 @@ while True:
         print("Detected: Blue")
     #white
     elif red > 200 and green > 200 and blue > 200:
-        print("Detected: Black")
+        print("Detected: White")
     #black
     elif red < 10 and green < 10 and blue < 10:
-        print("Detected: White")
+        print("Detected: Black")
+    
     
     time.sleep_ms(20)
     

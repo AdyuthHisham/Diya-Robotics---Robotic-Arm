@@ -69,11 +69,8 @@ while True:
             s1Pos = 180
         s1.servo_Angle(s1Pos)
         print(s1Pos)
-        
-    if ZPos > ZLim_max - 50:
-        print("MOVE: DEACTIVATING EE")
-        relay.value(0)
-    elif ZPos < ZLim_max - 50:
+          
+    if ZPos < ZLim_max - 50:
         print("MOVE: ACTIVATING EE")
         relay.value(1)
     

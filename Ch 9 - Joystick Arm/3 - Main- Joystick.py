@@ -11,13 +11,13 @@ import servo
 #INITIALIZING PINS
 
 ##Front and Back
-s1Servo = Servo(6)
+s1Servo = Servo(18)
 ##Left and Right
-s2Servo = Servo(7)
+s2Servo = Servo(19)
 ##Up and Down
-s3Servo = Servo(8)
+s3Servo = Servo(20)
 ##End effector
-s4Servo = Servo(9)
+s4Servo = Servo(21)
 
 ##Pins for joystick
 VRX1 = ADC(Pin(26))  
@@ -64,7 +64,7 @@ s4 = [s4Servo,s4Pos]
 def joyData():
     global switch
     print("Flag = ",switch)
-    print("Change value for Switch when joystick button is pressed")
+    #print("Change value for Switch when joystick button is pressed")
     ##Change value of 'switch' when joystick button is clicked
     if SW1.value() == 0:
         switch = not switch

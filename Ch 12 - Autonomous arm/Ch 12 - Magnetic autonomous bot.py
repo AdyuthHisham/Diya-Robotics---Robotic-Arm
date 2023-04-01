@@ -8,26 +8,25 @@ from servo import Servo
 
 #Config variables
 ir_pin = 16
-relay_pin = 19
+relay_pin = 15
 
 ##Initial position when no object
-s1_inPos = 145
-s2_inPos = 10
-s3_inPos = 60
+s1_inPos = 90
+s2_inPos = 110
+s3_inPos = 40
 
 ##Final poisiton for placement of object
-s1_finPos = 30
-s2_finPos_1 = 70
-s2_finPos_2 = 20
-s3_finPos = 50
+s1_finPos = 90
+s2_finPos = 110
+s3_finPos = 140
 
 #Initialize pins
 ##Front and Back
-s1Servo = Servo(7)
+s1Servo = Servo(18)
 ##Left and Right
-s2Servo = Servo(8)
+s2Servo = Servo(19)
 ##Up and Down
-s3Servo = Servo(9)
+s3Servo = Servo(20)
 ##Object detection sensor
 ir = Pin(ir_pin,Pin.IN)
 ##Relay activation 
@@ -51,13 +50,11 @@ inPos()
 #Pick object and place it
 def finPos():
     print("Picking up object")
-    s2Servo.servo_Angle(s2_finPos_1)
+    s2Servo.servo_Angle(s2_finPos)
     sleep(2)
     s1Servo.servo_Angle(s1_finPos)
     sleep(2)
     s3Servo.servo_Angle(s3_finPos)
-    sleep(2)
-    s2Servo.servo_Angle(s2_finPos_2)
     sleep(2)
     print("Object droppped in designated area")
     #Turn off magnetic EE

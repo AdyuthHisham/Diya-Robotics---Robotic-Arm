@@ -5,9 +5,9 @@ import servo
 
 #INITIALIZING PINS
 #Front and Back
-s1Servo = Servo(6)
+s1Servo = Servo(18)
 #Left and Right
-s2Servo = Servo(7)
+s2Servo = Servo(19)
 
 VRX1 = ADC(Pin(26))  
 VRY1 = ADC(Pin(27))
@@ -57,45 +57,33 @@ def servoMove(servoVars,flag):
 #SERVO Func
 def joyMove():
 
-    global s1,s2,s3,s4
+    global s1,s2,SW1
+    #print(f"{SW1.value()}")
     ##Get joystick data
     joyX,joyY = joyData()
     ##Servo 1 and Servo 2
-    if switch == 0:
-        if joyY > maxCriteria:
-            print("Command: FRONT")
-            servoMove(s1,1)
-            print("s1[1] = ",s1[1])
-        elif joyY < minCriteria:
-            print("Command: BACK")
-            servoMove(s1,-1)
-            print("s1[1] = ",s1[1])
-        elif joyX > maxCriteria:
-            print("Command: LEFT")
-            servoMove(s2,1)
-            print("s2[1] = ",s2[1])
-        elif joyX < minCriteria:
-            print("Command: RIGHT")
-            servoMove(s2,-1)
-            print("s2[1] = ",s2[1])
-    #Servo 3 and Servo 4
-    elif switch == 1:
-        if joyY > maxCriteria:
-            print("Command: UP")
-            servoMove(s3,1)
-            print("s3[1] = ",s3[1])
-        elif joyY < minCriteria:
-            print("Command: DOWN")
-            servoMove(s3,-1)
-            print("s3[1] = ",s3[1])
-        elif joyX > maxCriteria:
-            print("Command: EE OPEN")
-            servoMove(s4,1)
-            print("s4[1] = ",s4[1])
-        elif joyX < minCriteria:
-            print("Command: EE CLOSE")
-            servoMove(s4,-1)
-            print("s4[1] = ",s4[1])
+    if SW1.value() == 0:
+        print("Going to home position")
+        s1[1] = 90
+        s2[1] = 90
+        s1[0].servo_Angle(90)
+        s2[0].servo_Angle(90)
+    elif joyY > maxCriteria:
+        print("Command: RIGHT")
+        servoMove(s1,-1)
+        print("s1[1] = ",s1[1])
+    elif joyY < minCriteria:
+        print("Command: LEFT")
+        servoMove(s1,1)
+        print("s1[1] = ",s1[1])
+    elif joyX > maxCriteria:
+        print("Command: FRONT")
+        servoMove(s2,1)
+        print("s2[1] = ",s2[1])
+    elif joyX < minCriteria:
+        print("Command: BACK")
+        servoMove(s2,-1)
+        print("s2[1] = ",s2[1])
 
 while True:
     print("----------------------")

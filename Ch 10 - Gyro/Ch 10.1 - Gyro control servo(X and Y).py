@@ -7,7 +7,7 @@ from time import sleep
 from servo import Servo,Map
 
 #Initialize pins
-relay = Pin(19,Pin.OUT)
+relay = Pin(16,Pin.OUT)
 gyro_x = ADC(Pin(26,Pin.IN))
 gyro_y = ADC(Pin(27,Pin.IN))
 gyro_z = ADC(Pin(28,Pin.IN))
@@ -27,11 +27,11 @@ s2Pos = 90
 s3Pos = 90
 
 ##Front and Back
-s1 = Servo(7)
+s1 = Servo(18)
 ##Left and Right
-s2 = Servo(8)
+s2 = Servo(19)
 ##Up and Down
-s3 = Servo(9)
+s3 = Servo(20)
 
 
 while True:

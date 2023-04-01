@@ -51,20 +51,23 @@
             font-size: 1.5em;
             border-radius: 5px;
         }
+        #last_input{
+            margin-top: 20px;
+        }
         </style>
     </head>
     <body>
-        <h1>Pico W Servo Controller</h1>
+        <h1>DIYA Industrious Automator</h1>
         <form id="form" action="" method='get'>
-            <label for="servo_base">SERVO BASE</label>
+            <label for="servo_base">BASE SERVO</label>
             <input type="text" name="servo_base" id="servo_base">
-            <label for="servo_vertical">SERVO VERTICAL</label>
+            <label for="servo_vertical">LEFT LINK SERVO</label>
             <input type="text" name="servo_vertical" id="servo_vertical">
-            <label for="servo_forward">SERVO FORWARD</label>
+            <label for="servo_forward">RIGHT LINK SERVO</label>
             <input type="text" name="servo_forward" id="servo_forward">
-            <label for="end_effector">END EFFECTOR</label>
+            <label for="end_effector">GRIPPER</label>
             <input type="text" name="end_effector" id="end_effector">
-            <span>Last input:</span>
+            <span id="last_input">Last input:</span>
             <button type='submit'>Submit</button>
         </form>
     </body>

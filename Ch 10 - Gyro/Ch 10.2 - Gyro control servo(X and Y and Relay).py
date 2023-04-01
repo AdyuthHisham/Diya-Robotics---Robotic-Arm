@@ -7,7 +7,7 @@ from time import sleep
 from servo import Servo,Map
 
 #Initialize pins
-relay = Pin(19,Pin.OUT)
+relay = Pin(16,Pin.OUT)
 button = Pin(10,Pin.OUT)
 gyro_x = ADC(Pin(26,Pin.IN))
 gyro_y = ADC(Pin(27,Pin.IN))
@@ -18,6 +18,7 @@ s1Pos = 90
 s2Pos = 90
 s3Pos = 90
 
+flag = 0
 ##Constants for setting up limits for Z,Y and Z axis
 XLim_min = 459
 YLim_min = 450
@@ -28,14 +29,15 @@ YLim_max = 600
 ZLim_max = 510
 
 ##Front and Back
-s1 = Servo(7)
+s1 = Servo(18)
 ##Left and Right
-s2 = Servo(8)
+s2 = Servo(19)
 ##Up and Down
-s3 = Servo(9)
+s3 = Servo(20)
 
 
 while True:
+    
     #Read X,Y and Z values and Map from 0 to 1024
     XPos = Map(gyro_x.read_u16(),0,65535,0,1024)
     YPos = Map(gyro_y.read_u16(),0,65535,0,1024)
@@ -43,6 +45,10 @@ while True:
     print(f"{XPos} : {YPos} : {ZPos} ")
 
     #Perform movement if criteria is satisfied
+    if button.value():
+        relay.value(1)
+    else:
+        relay.value(0)
     if XPos < XLim_min:
         print("MOVE: DOWN")
         s2Pos = s2Pos - 15
@@ -69,12 +75,4 @@ while True:
             s1Pos = 180
         s1.servo_Angle(s1Pos)
         print(s1Pos)
-    if button.value():
-        flag = not flag
-    if flag == 1:
-        relay.value(1)
-    else:
-        relay.value(0)
-        
-    
     sleep(1.0)
