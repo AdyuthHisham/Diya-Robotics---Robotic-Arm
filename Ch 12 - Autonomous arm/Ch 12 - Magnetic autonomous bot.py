@@ -35,7 +35,7 @@ relay = Pin(relay_pin,Pin.OUT)
 
 #Setup
 
-##Position for going to home position
+##Set arm to home position
 def inPos():
     print("Going to home position")
     s1Servo.servo_Angle(s1_inPos)
@@ -48,7 +48,7 @@ def inPos():
 
 inPos()
 
-#Function for placing object
+#Pick object and place it
 def finPos():
     print("Picking up object")
     s2Servo.servo_Angle(s2_finPos_1)
@@ -60,22 +60,21 @@ def finPos():
     s2Servo.servo_Angle(s2_finPos_2)
     sleep(2)
     print("Object droppped in designated area")
+    #Turn off magnetic EE
     relay.value(0)
     sleep(4)
     inPos()
     
-#Infinite loop
 while True:
-    #If object is detected..
+
     if ir.value() == False:
         print("Object detected")
-        #Activate EE
+        ##Activate magnetic EE
         relay.value(1)
         ##Delay for picking up objects
         sleep(5)
-        #Run function
         finPos()
-        #Move to allocated area
+        
         
 
 

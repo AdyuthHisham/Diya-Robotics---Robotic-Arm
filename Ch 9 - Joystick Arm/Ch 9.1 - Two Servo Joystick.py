@@ -1,9 +1,5 @@
-#Imported packages
-##Machine package imports functions required for communicating with the microcontroller
 from machine import Pin,ADC
-##sleep function is used to put the board to sleep. This is done to give a buffer preventing overloading of data
 from time import sleep
-##From servo, the class Servo is imported that helps make controlling servos easier
 from servo import Servo
 import servo
 
@@ -38,9 +34,8 @@ s2Pos = 90
 s1 = [s1Servo,s1Pos]
 s2 = [s2Servo,s2Pos]
 
-#Switch and Mapping Function
+#Receive joystick data and map it
 def joyData():
-    ##Map raw joystick values to required range
     adc_X1=round(servo.Map(VRX1.read_u16(),0,65535,minMapValue,maxMapValue))
     adc_Y1=round(servo.Map(VRY1.read_u16(),0,65535,minMapValue,maxMapValue))
     return(adc_X1,adc_Y1)
@@ -58,7 +53,7 @@ def servoMove(servoVars,flag):
         servoVars[1] = servoVars[1] + changeVar
     ##Move servo
     servoVars[0].servo_Angle(servoVars[1])
-
+    
 #SERVO Func
 def joyMove():
 
@@ -66,26 +61,43 @@ def joyMove():
     ##Get joystick data
     joyX,joyY = joyData()
     ##Servo 1 and Servo 2
-    if joyY > maxCriteria:
-        print("Command: FRONT")
-        servoMove(s1,1)
-        print("s1[1] = ",s1[1])
-    elif joyY < minCriteria:
-        print("Command: BACK")
-        servoMove(s1,-1)
-        print("s1[1] = ",s1[1])
-    elif joyX > maxCriteria:
-        print("Command: LEFT")
-        servoMove(s2,1)
-        print("s2[1] = ",s2[1])
-    elif joyX < minCriteria:
-        print("Command: RIGHT")
-        servoMove(s2,-1)
-        print("s2[1] = ",s2[1])
-
+    if switch == 0:
+        if joyY > maxCriteria:
+            print("Command: FRONT")
+            servoMove(s1,1)
+            print("s1[1] = ",s1[1])
+        elif joyY < minCriteria:
+            print("Command: BACK")
+            servoMove(s1,-1)
+            print("s1[1] = ",s1[1])
+        elif joyX > maxCriteria:
+            print("Command: LEFT")
+            servoMove(s2,1)
+            print("s2[1] = ",s2[1])
+        elif joyX < minCriteria:
+            print("Command: RIGHT")
+            servoMove(s2,-1)
+            print("s2[1] = ",s2[1])
+    #Servo 3 and Servo 4
+    elif switch == 1:
+        if joyY > maxCriteria:
+            print("Command: UP")
+            servoMove(s3,1)
+            print("s3[1] = ",s3[1])
+        elif joyY < minCriteria:
+            print("Command: DOWN")
+            servoMove(s3,-1)
+            print("s3[1] = ",s3[1])
+        elif joyX > maxCriteria:
+            print("Command: EE OPEN")
+            servoMove(s4,1)
+            print("s4[1] = ",s4[1])
+        elif joyX < minCriteria:
+            print("Command: EE CLOSE")
+            servoMove(s4,-1)
+            print("s4[1] = ",s4[1])
 
 while True:
-    #Main command
     print("----------------------")
     joyMove()
     sleep(0.3)

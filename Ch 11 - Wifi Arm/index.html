@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pico W</title>
+        <style>
+        body {
+            background-color: #212121;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        a {
+            color: #006933;
+            text-decoration: none;
+        }
+        form {
+            width: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        label {
+            font-size: 1.5em;
+            padding: 10px;
+        }
+        input{
+            width:40vw ;
+            max-width: 300px;
+            font-size:1.5em;
+            text-align: center;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff0066;
+            border: none;
+            color: white;
+            margin: 20px;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.5em;
+            border-radius: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Pico W Servo Controller</h1>
+        <form id="form" action="" method='get'>
+            <label for="servo_base">SERVO BASE</label>
+            <input type="text" name="servo_base" id="servo_base">
+            <label for="servo_vertical">SERVO VERTICAL</label>
+            <input type="text" name="servo_vertical" id="servo_vertical">
+            <label for="servo_forward">SERVO FORWARD</label>
+            <input type="text" name="servo_forward" id="servo_forward">
+            <label for="end_effector">END EFFECTOR</label>
+            <input type="text" name="end_effector" id="end_effector">
+            <span>Last input:</span>
+            <button type='submit'>Submit</button>
+        </form>
+    </body>
+</html>
+
+
+
