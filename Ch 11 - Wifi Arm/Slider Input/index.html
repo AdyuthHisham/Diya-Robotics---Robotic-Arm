@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DIYA ROBOTICS</title>
+        <style>
+        body {
+            background-color: #212121;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        a {
+            color: #006933;
+            text-decoration: none;
+        }
+        form {
+            width: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+        span,label {
+            font-size: 1.5em;
+            padding: 10px;
+        }
+        .slider {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 50vh;
+          height: 25px;
+          border-radius: 15px;
+          background: #545454;
+          outline: none;
+        }
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: #006933;
+          cursor: pointer;
+        }
+        .slider::-moz-range-thumb {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: #006933;
+          cursor: pointer;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>DIYA INDUSTRIOUS AUTOMATOR</h1>
+        <form id="form">
+            <label>BASE SERVO</label>
+            <input type="range" class="slider" min="0" max="180" value="slider_value_base_servo" name="base_servo" id="base_servo">
+            <span id="base_servo_output"></span>
+            <label>RIGHT LINK SERVO</label>
+            <input type="range" class="slider" min="0" max="180" value="slider_value_right_link_servo" name="right_link_servo" id="right_link_servo">
+            <span id="right_link_servo_output"></span>
+            <label>LEFT LINK SERVO</label>
+            <input type="range" class="slider" min="0" max="180" value="slider_value_left_link_servo" name="left_link_servo" id="left_link_servo">
+            <span id="left_link_servo_output"></span>
+            <label>END EFFECTOR</label>
+            <input type="range" class="slider" min="0" max="180" value="slider_value_end_effector" name="end_effector" id="end_effector">
+            <span id="end_effector_output"></span>
+        </form>
+        <script>
+            // Select all the dow elements that are interactive
+            let base_servo = document.getElementById('base_servo'), base_servo_output = document.getElementById('base_servo_output');
+            let right_link_servo = document.getElementById('right_link_servo'), right_link_servo_output = document.getElementById('right_link_servo_output');
+            let left_link_servo = document.getElementById('left_link_servo'), left_link_servo_output = document.getElementById('left_link_servo_output');
+            let end_effector = document.getElementById('end_effector'), end_effector_output = document.getElementById('end_effector_output');
+
+            // The first event listner sets the input value of the slider to the output span to show its value upon input event
+            // The second event listner submits the entire form when it is changed by moving the slider
+
+            // SERVO BASE
+            base_servo_output.innerHTML = base_servo.value;
+            base_servo.addEventListener('input', function () {
+              base_servo_output.innerHTML = base_servo.value;
+            }, false);
+            base_servo.addEventListener('change', function ()  {
+                document.getElementById("form").submit();
+            }, false);
+            
+            // SERVO VERTICAL
+            right_link_servo_output.innerHTML = right_link_servo.value;
+            right_link_servo.addEventListener('input', function () {
+              right_link_servo_output.innerHTML = right_link_servo.value;
+            }, false);
+            right_link_servo.addEventListener('change', function ()  {
+                document.getElementById("form").submit();
+            }, false);
+            
+            // SERVO FORWARD
+            left_link_servo_output.innerHTML = left_link_servo.value;
+            left_link_servo.addEventListener('input', function () {
+                left_link_servo_output.innerHTML = left_link_servo.value;
+            }, false);
+            left_link_servo.addEventListener('change', function ()  {
+                document.getElementById("form").submit();
+            }, false);
+
+            // END EFFECTOR
+            end_effector_output.innerHTML = end_effector.value;
+            left_link_servo.addEventListener('input', function () {
+                end_effector_output.innerHTML = end_effector.value;
+            }, false);
+            end_effector.addEventListener('change', function ()  {
+                document.getElementById("form").submit();
+            }, false);
+
+        </script>
+    </body>
+</html>
+
+
+
