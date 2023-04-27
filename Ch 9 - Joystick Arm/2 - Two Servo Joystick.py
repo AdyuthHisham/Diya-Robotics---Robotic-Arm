@@ -5,14 +5,14 @@ import servo
 
 #INITIALIZING PINS
 #Front and Back
-s1Servo = Servo(18)
+s1Servo = Servo(11)
 #Left and Right
-s2Servo = Servo(19)
+s2Servo = Servo(13)
 
 VRX1 = ADC(Pin(26))  
 VRY1 = ADC(Pin(27))
 
-SW1 = Pin(15, Pin.IN, Pin.PULL_UP)
+SW1 = Pin(16, Pin.IN, Pin.PULL_UP)
 
 #SERVO HOME POSITION
 s1Servo.middle()
@@ -58,9 +58,11 @@ def servoMove(servoVars,flag):
 def joyMove():
 
     global s1,s2,SW1
-    #print(f"{SW1.value()}")
+    print(f"{SW1.value()}")
+    
     ##Get joystick data
     joyX,joyY = joyData()
+    print(f"joyX = {joyX} : joyY = {joyY}")
     ##Servo 1 and Servo 2
     if SW1.value() == 0:
         print("Going to home position")

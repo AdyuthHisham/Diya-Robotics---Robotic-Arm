@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pico W</title>
+        <style>
+        body {
+            background-color: #212121;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+        h1 {
+            font-size: 48pt;
+        }
+        a {
+            color: #006933;
+            text-decoration: none;
+        }
+        form {
+            width: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+        span,label {
+            font-size: 48pt;
+            padding: 25px;
+        }
+        .slider {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 500px;
+          height: 35px;
+          border-radius: 15px;
+          background: #545454;
+          outline: none;
+        }
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: #006933;
+          cursor: pointer;
+        }
+        .slider::-moz-range-thumb {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: #006933;
+          cursor: pointer;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Pico W Servo Controller</h1>
+        <form id="form">
+            <label>SERVO BASE</label>
+            <input type="range" class="slider" min="0" max="180" value="slider_value_servo_base" name="servo_base" id="servo_base">
+            <span id="servo_base_output"></span>
+            <label>SERVO VERTICAL</label>
+            <input type="range" class="slider" min="0" max="180" value="slider_value_servo_vertical" name="servo_vertical" id="servo_vertical">
+            <span id="servo_vertical_output"></span>
+            <label>SERVO FORWARD</label>
+            <input type="range" class="slider" min="0" max="180" value="slider_value_servo_forward" name="servo_forward" id="servo_forward">
+            <span id="servo_forward_output"></span>
+            <label>END EFFECTOR</label>
+            <input type="range" class="slider" min="0" max="180" value="slider_value_end_effector" name="end_effector" id="end_effector">
+            <span id="end_effector_output"></span>
+        </form>
+        <script>
+            let servo_base = document.getElementById('servo_base'), servo_base_output = document.getElementById('servo_base_output');
+            let servo_vertical = document.getElementById('servo_vertical'), servo_vertical_output = document.getElementById('servo_vertical_output');
+            let servo_forward = document.getElementById('servo_forward'), servo_forward_output = document.getElementById('servo_forward_output');
+            let end_effector = document.getElementById('end_effector'), end_effector_output = document.getElementById('end_effector_output');
+
+            // SERVO BASE
+            servo_base_output.innerHTML = servo_base.value;
+            servo_base.addEventListener('input', function () {
+              servo_base_output.innerHTML = servo_base.value;
+            }, false);
+            servo_base.addEventListener('change', function ()  {
+                document.getElementById("form").submit();
+            }, false);
+            
+            // SERVO VERTICAL
+            servo_vertical_output.innerHTML = servo_vertical.value;
+            servo_vertical.addEventListener('input', function () {
+              servo_vertical_output.innerHTML = servo_vertical.value;
+            }, false);
+            servo_vertical.addEventListener('change', function ()  {
+                document.getElementById("form").submit();
+            }, false);
+            
+            // SERVO FORWARD
+            servo_forward_output.innerHTML = servo_forward.value;
+            servo_forward.addEventListener('input', function () {
+                servo_forward_output.innerHTML = servo_forward.value;
+            }, false);
+            servo_forward.addEventListener('change', function ()  {
+                document.getElementById("form").submit();
+            }, false);
+
+            // END EFFECTOR
+            end_effector_output.innerHTML = end_effector.value;
+            servo_forward.addEventListener('input', function () {
+                end_effector_output.innerHTML = end_effector.value;
+            }, false);
+            end_effector.addEventListener('change', function ()  {
+                document.getElementById("form").submit();
+            }, false);
+
+        </script>
+    </body>
+</html>
+
+

@@ -26,7 +26,7 @@ while True:
     ##Receive raw RGB values
     red,green,blue = tcs34725.html_rgb(sensor.read(raw=True))
     ##Display R G and B values
-    #print(f"Red = {red}, Green = {green}, Blue = {blue}")
+    print(f"Red = {red}, Green = {green}, Blue = {blue}")
 
     ##Compare and check which colour has highest presence in sensed object
     #red

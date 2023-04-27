@@ -11,9 +11,9 @@ import servo
 #INITIALIZING PINS
 
 ##Front and Back
-s1Servo = Servo(18)
+s1Servo = Servo(19)
 ##Left and Right
-s2Servo = Servo(19)
+s2Servo = Servo(18)
 ##Up and Down
 s3Servo = Servo(20)
 ##End effector
@@ -96,20 +96,20 @@ def joyMove():
     ##Servo 1 and Servo 2
     if switch == 0:
         if joyY > maxCriteria:
-            print("Command: FRONT")
+            print("Command: LEFT")
             servoMove(s1,1)
             print("s1[1] = ",s1[1])
         elif joyY < minCriteria:
-            print("Command: BACK")
+            print("Command: RIGHT")
             servoMove(s1,-1)
             print("s1[1] = ",s1[1])
         elif joyX > maxCriteria:
-            print("Command: LEFT")
-            servoMove(s2,1)
+            print("Command: BACK")
+            servoMove(s2,-1)
             print("s2[1] = ",s2[1])
         elif joyX < minCriteria:
-            print("Command: RIGHT")
-            servoMove(s2,-1)
+            print("Command: FRONT")
+            servoMove(s2,1)
             print("s2[1] = ",s2[1])
     #Servo 3 and Servo 4
     elif switch == 1:
@@ -136,4 +136,4 @@ while True:
     #Main command
     print("----------------------")
     joyMove()
-    sleep(0.3)
+    sleep(0.3)`
