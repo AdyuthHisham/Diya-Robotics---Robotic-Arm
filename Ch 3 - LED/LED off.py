@@ -3,7 +3,7 @@ from machine import Pin
 
 #Declaring object p2 for LED
 #Onboard LED is connected to Pin 25
-p2=Pin(25,Pin.OUT)
+p2=Pin("LED",Pin.OUT)
 
 #To run loop infinitely
 while True:
