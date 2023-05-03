@@ -6,10 +6,10 @@ from time import sleep
 VRX1 = ADC(Pin(26))  
 VRY1 = ADC(Pin(27))
 
-SW1 = Pin(15, Pin.IN, Pin.PULL_UP)
+SW1 = Pin(14, Pin.IN, Pin.PULL_UP)
 
 #Declaring Constants
-Word1 = "Hiii, the switch is not clickced"
+Word1 = "Hiii, the switch is not clicked"
 Word2 = "Yay, you clicked the switch"
 
 switch = 0
@@ -24,3 +24,4 @@ while True:
         print(Word1)
     elif switch == False:
         print(Word2)
+    sleep(0.5)

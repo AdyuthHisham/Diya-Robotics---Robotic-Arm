@@ -1,7 +1,6 @@
 #IMPORING PACKAGES
 from time import sleep
 from servo import Servo
-from machine import Pin
 
 #INITIALIZING PINS
 #Front and Back
@@ -12,24 +11,28 @@ s2 = Servo(19)
 s3 = Servo(20)
 #End effector
 s4 = Servo(21)
-#Button
-button = Pin(10)
 
 #DECLARING VARIABLES FOR SETTING SERVO POSITIONS
-s1Pos_min = 0
+s1Pos_min = 10
 s1Pos_max = 180
 s2Pos_min = 0
 s2Pos_max = 180
-s3Pos_min = 0
-s3Pos_max = 180
-s4Pos_min = 0
-s4Pos_max = 180
+
+#DECLARING VARIABLES FOR SETTING SERVO POSITIONS
+s1Pos = 90
+s2Pos = 90
+s3Pos = 90
+s4Pos = 90
 
 #SETTING ALL SERVOS TO MID POSITION
 s1.servo_Angle(s1Pos)
-sleep(2)
+sleep(0.5)
 s2.servo_Angle(s2Pos)
-sleep(2)
+sleep(0.5)
+s3.servo_Angle(s3Pos)
+sleep(0.5)
+s4.servo_Angle(s4Pos)
+sleep(0.5)
 
 #Infinite loop
 while True:
@@ -59,19 +62,21 @@ while True:
         s1.servo_Angle(s1Pos)
         print(s1Pos)
     elif keyword == 'd':
-        print("Command: DOWN")
+        print("Command: RIGHT")
         s1Pos = s1Pos - 5
         if s1Pos < s1Pos_min:
             s1Pos = s1Pos_min
         s1.servo_Angle(s1Pos)
         print(s1Pos)
         
-        
     #Deinitialize servo motors for free control
     if keyword == 'e':
         s1.deinit()
         s2.deinit()
         break
+    
+    else:
+        print("Incorrect key")
 
 
         

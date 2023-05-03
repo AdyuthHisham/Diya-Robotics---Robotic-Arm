@@ -5,14 +5,14 @@ import servo
 
 #INITIALIZING PINS
 #Front and Back
-s1Servo = Servo(11)
+s1Servo = Servo(18)
 #Left and Right
-s2Servo = Servo(13)
+s2Servo = Servo(19)
 
 VRX1 = ADC(Pin(26))  
 VRY1 = ADC(Pin(27))
 
-SW1 = Pin(16, Pin.IN, Pin.PULL_UP)
+SW1 = Pin(14, Pin.IN, Pin.PULL_UP)
 
 #SERVO HOME POSITION
 s1Servo.middle()
@@ -68,22 +68,22 @@ def joyMove():
         print("Going to home position")
         s1[1] = 90
         s2[1] = 90
-        s1[0].servo_Angle(90)
-        s2[0].servo_Angle(90)
+        s1[0].servo_Angle(s1[1])
+        s2[0].servo_Angle(s2[1])
     elif joyY > maxCriteria:
-        print("Command: RIGHT")
+        print("Command: DOWN")
         servoMove(s1,-1)
         print("s1[1] = ",s1[1])
     elif joyY < minCriteria:
-        print("Command: LEFT")
+        print("Command: UP")
         servoMove(s1,1)
         print("s1[1] = ",s1[1])
     elif joyX > maxCriteria:
-        print("Command: FRONT")
+        print("Command: LEFT")
         servoMove(s2,1)
         print("s2[1] = ",s2[1])
     elif joyX < minCriteria:
-        print("Command: BACK")
+        print("Command: RIGHT")
         servoMove(s2,-1)
         print("s2[1] = ",s2[1])
 

@@ -22,7 +22,7 @@ s4Servo = Servo(21)
 ##Pins for joystick
 VRX1 = ADC(Pin(26))  
 VRY1 = ADC(Pin(27))
-SW1 = Pin(15, Pin.IN, Pin.PULL_UP)
+SW1 = Pin(14, Pin.IN, Pin.PULL_UP)
 
 ##SERVO HOME POSITION
 s1Servo.middle()
@@ -136,4 +136,4 @@ while True:
     #Main command
     print("----------------------")
     joyMove()
-    sleep(0.3)`
+    sleep(0.3)

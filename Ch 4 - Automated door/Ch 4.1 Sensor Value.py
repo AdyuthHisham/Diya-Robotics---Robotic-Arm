@@ -12,6 +12,7 @@ objSens = Pin(objSensPIN,Pin.IN)
 
 #Infinite loop
 while True:
+    
     #Display obstacle sensor value
     print(objSens.value())
     #If sensor detects something...

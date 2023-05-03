@@ -1,4 +1,4 @@
-#IMPORING PACKAGES
+#IMPORTING PACKAGES
 from time import sleep
 from servo import Servo
 from machine import Pin
@@ -17,19 +17,19 @@ button = Pin(10)
 
 #DECLARING VARIABLES FOR SETTING SERVO POSITIONS
 s1Pos = 90
-s2Pos = 60
-s3Pos = 55
+s2Pos = 90
+s3Pos = 90
 s4Pos = 90
 
 #SETTING ALL SERVOS TO MID POSITION
 s1.servo_Angle(s1Pos)
-sleep(2)
+sleep(1)
 s2.servo_Angle(s2Pos)
-sleep(2)
+sleep(1)
 s3.servo_Angle(s3Pos)
-sleep(2)
+sleep(1)
 s4.servo_Angle(s4Pos)
-sleep(2)
+sleep(1)
 
 #VARIABLE FOR SWITCHING SERVO CONTROL
 switch = 0

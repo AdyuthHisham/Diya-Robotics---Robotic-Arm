@@ -2,7 +2,7 @@
 from machine import Pin
 
 #Declaring object p2 for LED
-#Onboard LED is connected to Pin 25
+#Onboard LED can be initialized using the "LED" keyword
 p2=Pin("LED",Pin.OUT)
 
 #To run loop infinitely

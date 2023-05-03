@@ -16,7 +16,7 @@ s4 = Servo(21)
 s1Pos = 90
 s2Pos = 90
 s3Pos = 90
-s4Pos = 90
+s4Pos = 120
 
 #SET POSITION FOR SERVOS
 s1.servo_Angle(s1Pos)

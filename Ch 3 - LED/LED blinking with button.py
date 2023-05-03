@@ -3,11 +3,11 @@ from machine import Pin
 
 #Declaring object button for button
 #Button is connected to Pin 10
-button=(Pin(10,Pin.IN))
+button= Pin(10,Pin.IN)
 
 #Declaring object p2 for LED
-#Onboard LED is connected to Pin 2
-p2=Pin(2,Pin.OUT)
+#Onboard LED can be initialized using the "LED" keyword
+p2=Pin("LED",Pin.OUT)
 
 #To run loop infinitely
 while True:

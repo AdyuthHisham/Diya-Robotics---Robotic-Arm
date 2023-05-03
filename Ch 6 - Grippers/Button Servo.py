@@ -8,7 +8,7 @@ from servo import Servo
 
 #PIN VARIABLES
 servo_pin = 3
-maxPos = 30
+maxPos = 170
 minPos = 90
 button_1Pin = 10
 button_2Pin = 11
@@ -21,8 +21,8 @@ button_2 = Pin(button_2Pin,Pin.IN)
 #Infinite loop
 while True:
     #If button 1 is activated; move to max pos
-    if button_1.value():
+    if not button_1.value():
         s1.servo_Angle(maxPos)
     #If button 2 is activated; move to min pos
-    if button_2.value():
+    if not button_2.value():
         s1.servo_Angle(minPos)

@@ -7,7 +7,7 @@ from time import sleep
 from servo import Servo,Map
 
 #Initialize pins
-relay = Pin(16,Pin.OUT)
+
 gyro_x = ADC(Pin(26,Pin.IN))
 gyro_y = ADC(Pin(27,Pin.IN))
 gyro_z = ADC(Pin(28,Pin.IN))
@@ -30,15 +30,13 @@ s3Pos = 90
 s1 = Servo(18)
 ##Left and Right
 s2 = Servo(19)
-##Up and Down
-s3 = Servo(20)
+
 
 
 while True:
     #Read X,Y and Z values and Map from 0 to 1024
     XPos = Map(gyro_x.read_u16(),0,65535,0,1024)
     YPos = Map(gyro_y.read_u16(),0,65535,0,1024)
-    ZPos = Map(gyro_z.read_u16(),0,65535,0,1024)
     print(f"{XPos} : {YPos} : {ZPos} ")
 
     #Perform movement if criteria is satisfied

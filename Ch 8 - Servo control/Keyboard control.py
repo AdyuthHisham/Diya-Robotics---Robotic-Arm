@@ -4,10 +4,11 @@ from servo import Servo
 from machine import Pin
 
 #INITIALIZING PINS
-#Front and Back
-s1 = Servo(18)
+
 #Left and Right
-s2 = Servo(20)
+s1 = Servo(19)
+#Front and Back
+s2 = Servo(18)
 #Button
 button = Pin(10)
 

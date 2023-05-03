@@ -5,13 +5,13 @@ from machine import Pin
 from time import sleep
 
 #Initialize Pins
-relay = Pin(19, Pin.OUT)
+relay = Pin(15, Pin.OUT)
 button = Pin(10,Pin.IN)
 
 #Infinite loop
 while True:
   #If button is active...
-  if button.value() == 1:
+  if button.value():
       #...Activate relay    
       relay.value(1)
   else:

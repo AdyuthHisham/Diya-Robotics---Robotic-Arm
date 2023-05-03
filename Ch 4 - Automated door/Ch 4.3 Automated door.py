@@ -31,3 +31,4 @@ while True:
         print("Door open")
         #Keep door closed
         s1.servo_Angle(170)
+    sleep(0.25)
