@@ -4,7 +4,7 @@ DIYA Edulabs
 ----------
 This repo contains the programs for each chapter in the *DIYA Edulabs* **Robotic Arm** curriculum
 
-Chapters
+**Chapters**
 ______
 
 **Chapters 2 - 5** deal with introducing the students to text based programming and getting them accustomed to working with the *Raspberry Pi Pico* microcontroller.
@@ -17,7 +17,7 @@ ______
 
 **Wifi arm** is an additional program for establishing communication with a *Raspberry Pi Pico W* over wifi.
 
-Libraries
+**Libraries**
 ____
 **servo.py** is a library modified for abstraction of certain functions for smooth learning and smoothening the learning curve.
 **tcs34725.py** is the library used for usage of the colour sensor.
